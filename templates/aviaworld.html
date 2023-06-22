@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>AviaWorld</h1>
+
+    <form action="/createdaw/">
+        <h2>Link of the add on</h2>
+        <input type="text" name="link" placeholder="Link">
+        <h2>Category among "scenery","plugin","aircraft"</h2>
+        <input type="text" name="category" placeholder="Category">
+        <h2>Validate</h2>
+        <input type="submit" value="Validate">
+    </form>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Simplaza</h1>
+
+    <form action="/createdsp" >
+        <h2>Link of the add on</h2>
+        <input type="text" name="link" placeholder="Link">
+        <h2>Link of the final download link </h2>
+        <input type="text" name="flink" placeholder="Final Link">
+        <h2>Link of the second final download link if there is one </h2>
+        <input type="text" name="flink2" placeholder="Final Link">
+        <h2>Validate</h2>
+        This script will scrape the Simplaza page to get the image url, the type and the name of the add on. <br>  It will generate an archive containing a README.txt file ready to upload on the file hoster of your choice website. <br> <br>
+        <input type="submit" value="Add">
+    </form>
+{% endblock %}

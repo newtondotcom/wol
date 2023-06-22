@@ -1,0 +1,6 @@
+zipfile36
+Django
+gunicorn
+uwsgi
+requests
+bs4

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Home</h1>
+    <p> Welcome to WorldOfLeaks!</p>
+
+    <p>WorldOfLeaks is a website where you can find leaks for {{nb}} flight simulation games :</p>
+
+    <div id="games">
+        {%for game in games%}
+        <ul><a href="/game/{{game.name}}/1">
+            <li>
+            <img id="image_list" src="{{game.picture | safe}}" alt="{{game.name}}" width="100%" height="100%">
+            <div id="sub">{{game.name | upper}}</div>
+            </li>
+        </a>
+        </ul>
+        {%endfor%}
+    <div>
+{% endblock %}

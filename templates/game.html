@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div id="subheader">
+    <h1>{{ game|upper }}</h1>
+</div>
+
+<div id="liste">
+        {% for article in tab %}
+        <ul>
+            <li>
+            <img id="image_list" src="{{article.image | safe}}" alt="image1" width="100%" height="100%">
+            <div id="sub" ><a id="sub" href="/product/{{article.game.name}}/{{article.category.name}}/{{article.id}}">{{article.name | safe}}</a></div>
+            </li>
+        </ul>
+        {% endfor %}
+        </div>
+
+</div>
+
+<div id="pagination">
+    {%if pagination == 0 %}
+    {% elif pagination == 1 and current_page == 1 %}
+    <a id="number" href="/game/{{game | safe}}/1">1</a>
+
+    {% elif current_page == 1 and pagination != 1%}
+    <a id="number" href="/game/{{game | safe}}/{{current_page | safe}}">{{current_page | safe}}</a>
+    <a id="number" href="/game/{{game | safe}}/{{paginationp | safe}}">next</a>
+    ...
+    <a  id="number" href="/game/{{game | safe}}/{{pagination | safe}}">{{pagination |safe }}</a>
+
+    {% elif current_page == pagination %}
+    <a id="number" href="/game/{{game | safe}}/1">1</a>
+    ...
+    <a id="number" href="/game/{{game | safe}}/{{paginationm | safe}}">previous</a>
+    <a id="number" href="/game/{{game | safe}}/{{current_page | safe}}">{{current_page | safe}}</a>
+
+    {% else %}
+        <a id="number" href="/game/{{game | safe}}/1">1</a>
+        ...
+        <a id="number" href="/game/{{game | safe}}/{{paginationm | safe}}">previous</a>
+        <a id="number" href="/game/{{game | safe}}/{{current_page | safe}}">{{current_page | safe}}</a>
+        <a id="number" href="/game/{{game | safe}}/{{paginationp | safe}}">next</a>
+        ...
+        <a  id="number" href="/game/{{game | safe}}/{{pagination | safe}}">{{pagination |safe }}</a>
+    {% endif %}
+</div>
+
+{% endblock %}

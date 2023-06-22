@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div id="subheader">
+    <h1> Search for : {{search | safe}}</h1>
+</div>
+
+<div id="liste">
+        {% for article in tab %}
+        <ul>
+            <li>
+            <img id="image_list" src="{{article.image | safe}}" alt="image1" width="100%" height="100%">
+            <div id="sub"><a href="/product/{{article.game.name}}/{{article.category.name}}/{{article.id}}">
+                {{article.game.name | upper }} |
+                {{article.name | safe}}</a></div>
+            </li>
+        </ul>
+        {% endfor %}
+        </div>
+
+</div>
+
+<div id="pagination">
+    {%if pagination == 0 %}
+    {% elif pagination == 1 and current_page == 1 %}
+    <a id="number" href="/search/1/?q={{search |safe}}">1</a>
+
+    {% elif current_page == 1 and pagination != 1%}
+    <a id="number" href="/search/1/?q={{search |safe}}">{{current_page | safe}}</a>
+    <a id="number" href="/search/{{paginationp| safe}}/?q={{search | safe}}">next</a>
+    ...
+    <a  id="number" href="/search/{{game | safe}}/{{pagination | safe}}/?q={{search |safe}}">{{pagination |safe }}</a>
+
+    {% elif current_page == pagination %}
+    <a id="number" href="/search/1/?q={{search |safe}}">1</a>
+    ...
+    <a id="number" href="/search/{{paginationm| safe}}/?q={{search |safe}}">previous</a>
+    <a id="number" href="/search/{{current_page| safe}}/?q={{search |safe}}">{{current_page | safe}}</a>
+
+    {% else %}
+        <a id="number" href="/search/{{game | safe}}/1">1</a>
+        ...
+        <a id="number" href="/search/{{paginationm| safe}}/?q={{search |safe}}">previous</a>
+        <a id="number" href="/search/{{current_page| safe}}/?q={{search |safe}}">{{current_page | safe}}</a>
+        <a id="number" href="/search/{{paginationp| safe}}/?q={{search |safe}}">next</a>
+        ...
+        <a  id="number" href="/search/{{pagination | safe}}/?q={{search |safe}}">{{pagination |safe }}</a>
+    {% endif %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>The add on is created</h1>
+
+    You can either download this archive and upload it to ModsFire for example : 
+     <a href="{{link |safe}}">{{link |safe}}</a> <br>
+     {%if link2%}
+        <a href="{{link2 |safe}}">{{link2 |safe}}</a> <br>
+     {% endif %}
+
+     Or you can download the ressource by yourself and upload it to ModsFire, but you wont support Simplaza and you could have to download and upload a 2G file, but the process will be much simple for the customer. <br>
+    
+    <a href="{{original_link |safe}}">{{original_link |safe}}</a> <br>
+    {% if original_link2%}
+    <a href="{{original_link2 |safe}}">{{original_link2 |safe}}</a> <br>
+    {% endif %}
+
+    Once you have done it, just go here and update the link <a href="/admin/product/product/">here</a> <br>
+    
+
+{% endblock %}

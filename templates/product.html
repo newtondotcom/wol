@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+<div id="container">
+<div id="titre">
+     {{ tab.game|upper }}
+    | {{tab.name | safe}}</div>
+<div id ="date">{{tab.date | date:"F j, Y"}}</div>
+<img id="image" src="{{tab.image | safe}}" alt="image1" width="100%" height="100%">
+
+
+{%if game.has2links == True %}
+<div id="download1">{{game.link1name |safe}}</div>
+<div id="text"><a id="link" href="{{tab.download | safe}}">{{tab.hostdownload | safe}}</a></div>
+<div id="download2">{{game.link2name |safe}}</div>
+<div id="text"><a id="link" href="{{tab.download2 | safe}}">{{tab.hostdownload2 | safe}}</a></div>
+{%else%}
+{%if tab.hostdownload2 == None %}
+<div id="download1">{{game.link1name |safe}}</div>
+<div id="text"><a id="link" href="{{tab.download | safe}}">Part 1 </a><a id="link" href="{{tab.download | safe}}"> Part 2</a></div>
+{%else%}
+<div id="download1">{{game.link1name |safe}}</div>
+<div id="text"><a id="link" href="{{tab.download | safe}}">{{tab.hostdownload | safe}}</a></div>
+{%endif%}
+{%endif%}
+
+
+{%if tab.note %}
+<div id="note">information</div>
+<div id="text">{{tab.note | safe |linebreaks}}</div>
+{%endif%}
+
+{%if tab.description %}
+<div id="description">description</div>
+<div id="text">{{tab.description | safe|linebreaks}}</div>
+{%endif%}
+
+{%if tab.changelog %}
+<div id="changelog">changelog</div>
+<div id="text">{{tab.changelog | safe|linebreaks}}</div>
+{%endif%}
+</div>
+
+{% endblock %}
