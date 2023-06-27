@@ -54,14 +54,30 @@ This project took me exactly 24 hours from start to beginning.
 
 # Contabo 🐶
 
-[Contabo](dz) is the web hoster I recommmand. They are cheap, reliable and have a good support 📒
+[Contabo](https://www.anrdoezrs.net/click-100796952-12454703) is the web hoster I recommmand. They are cheap, reliable and have a good support 📒
 
 For example, you could get :
-- a private [VPS](dz) with 4 vCores, 8GB RAM, 200GB SSD for 5.99€/month 💴
-- a [web hosting service](dz) with 50GB SSD, 20 MySQL DB, 1 domain and 1000 Email Addresses for 2.99€/month 💶
-- a [storage VPS](dz) with 2 vCores, 4GB RAM, 400GB SSD, unlimited bandwitch incoming and 32 TB outcoming for 5.99€/month 💷
+- a private [VPS](https://www.dpbolvw.net/click-100796952-13796470) with 4 vCores, 8GB RAM, 200GB SSD for 5.99€/month 💴
+- a [web hosting service](https://www.tkqlhce.com/click-100796952-12454678) with 50GB SSD, 20 MySQL DB, 1 domain and 1000 Email Addresses for 2.99€/month 💶
+- a [storage VPS](https://www.anrdoezrs.net/click-100796952-15239531) with 2 vCores, 4GB RAM, 400GB SSD, unlimited bandwitch incoming and 32 TB outcoming for 5.99€/month 💷
 
 I personnally think that they are the cheapest and the best web hoster in Europe 🇪🇺
 
-Don't hesistate to take a look at their [website](dz) 🌐
+Don't hesistate to take a look at their [website](https://www.anrdoezrs.net/click-100796952-12454703) 🌐
+
+
+# Discord :
+
+Hey @everyone, I am happy to present you our first sponsor **Contabo 🐶**, if you are a looking for a web hosting service, let me introduce them to you:
+
+[Contabo](https://www.anrdoezrs.net/click-100796952-12454703) is the web hoster I recommmand. They are cheap, reliable and have a good support 📒
+
+For example, you could get :
+- a private [VPS](https://www.dpbolvw.net/click-100796952-13796470) with 4 vCores, 8GB RAM, 200GB SSD for 5.99€/month 💴
+- a [web hosting service](https://www.tkqlhce.com/click-100796952-12454678) with 50GB SSD, 20 MySQL DB, 1 domain and 1000 Email Addresses for 2.99€/month 💶
+- a [storage VPS](https://www.anrdoezrs.net/click-100796952-15239531) with 2 vCores, 4GB RAM, 400GB SSD, unlimited bandwitch incoming and 32 TB outcoming for 5.99€/month 💷
+
+> I personnally think that they are the cheapest and the best web hoster in the world 🗺️
+
+Don't hesistate to take a look at their [website](https://www.anrdoezrs.net/click-100796952-12454703) 🌐
 
