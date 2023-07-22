@@ -34,8 +34,7 @@ You can add as many games and categories as you want. Each page is generated at 
 
 # Requirements
 
-- Python
-- pip
+- Python & pip 
 - and that's is all ! (the magic of Django)
 
 # Docker
