@@ -15,17 +15,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-zb0(#=*sf3wt*x781ww!^vtvr2lb=iia2&^2#5@%__+0k5m#6o'
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-# users will be redirected to the home page after login
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL =  "/"
 
 
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
