@@ -16,7 +16,7 @@ Each **category** can have 2 links displayed per product and each **product** ca
 
 # Content is community driven
 
-Once you have created an account and login, one can posts a **product**.
+Once one have created an account and logged in, one can post a new **product**.
 
 # Responsive and customizable
 
