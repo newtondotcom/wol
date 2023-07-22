@@ -33,3 +33,4 @@ jobs:
           context: .
           push: true
           tags: newtondotcom/wol:latest
+          platforms: linux/arm64
