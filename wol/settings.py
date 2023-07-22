@@ -20,6 +20,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+# users will be redirected to the home page after login
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL =  "/"
+
 
 # Application definition
 
@@ -43,12 +47,14 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 ROOT_URLCONF = 'wol.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': ['templates','templates/registration'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -61,6 +67,8 @@ TEMPLATES = [
         },
     },
 ]
+
+AUTH_USER_MODEL = 'datas.CustomUser'
 
 WSGI_APPLICATION = 'wol.wsgi.application'
 

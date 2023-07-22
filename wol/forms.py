@@ -24,5 +24,23 @@ class ProductForm(forms.ModelForm):
         modified_download = linkvertise(download)
         cleaned_data['download'] = modified_download
         return cleaned_data
+    
+    
+
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+
+class CustomUserCreationForm(UserCreationForm):
+    email = forms.EmailField(required=True)
+    discord = forms.CharField(max_length=50, required=True,label="Discord ID")
+
+    class Meta:
+        model = CustomUser
+        fields = ('username', 'email', 'discord', 'password1', 'password2')
+
+class CategoryForm(forms.Form):
+    category_choices = [(category.id, category.name) for category in Category.objects.all()]
+    category = forms.ChoiceField(choices=category_choices)
+
 
 

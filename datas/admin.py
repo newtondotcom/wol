@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import CatAndGames, Category, Game, Hosters, Product
+from .models import *
 
 @admin.register(CatAndGames)
 class CatAndGamesAdmin(admin.ModelAdmin):
@@ -23,3 +23,10 @@ class HostersAdmin(admin.ModelAdmin):
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     list_display = ('name', 'description', 'changelog', 'download', 'download2')
+
+@admin.register(CustomUser)
+class CustomUserAdmin(admin.ModelAdmin):
+    list_display = ('username', 'email', 'discord')
+    list_filter = ('discord',)
+    search_fields = ('username','email','discord')
+    ordering = ('username','email','discord')

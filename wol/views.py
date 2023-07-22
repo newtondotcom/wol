@@ -2,10 +2,10 @@ from datas.models import *
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
 from .functions import *
 from django.conf import settings
 from .forms import *
-
 def home(request):
     game = Game.objects.all()
     return render(request,'home.html',{"games" : game,"nb": len(game)})
@@ -40,7 +40,7 @@ def search(request,page):
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
-@login_required
+@staff_member_required
 def create_superuser(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -65,20 +65,20 @@ def createproduct(request):
         form = ProductForm()
     return render(request, 'create_product.html', {'form': form})
 
-@login_required
+@staff_member_required
 def panel(request):
     return render(request,'panel.html')
 
 ####FUNCTIONS SPECIFIC TO WOL####
 
-@login_required
+@staff_member_required
 def simplaza(request):
     if request.user.is_superuser:
         return render(request,'simplaza.html')
     else:
         return render(request,'home.html')
 
-@login_required
+@staff_member_required
 def aviaworld(request):
     if request.method == 'POST':
         form = CategoryForm(request.POST)
@@ -89,7 +89,7 @@ def aviaworld(request):
         form = CategoryForm()
     return render(request,'aviaworld.html',{'form': form})
 
-@login_required
+@staff_member_required
 def createdaw(request):
     link = request.GET.get('link')
     category = request.GET.get('category')
@@ -99,7 +99,7 @@ def createdaw(request):
     query.save()
     return render(request,'createdaw.html',{'link': link1,"link2": link2, "original_link": url1,"original_link2": url2})
 
-@login_required
+@staff_member_required
 def createdsp(request):
     link = request.GET.get('link')
     flink1 = request.GET.get('flink')
@@ -116,7 +116,7 @@ def createdsp(request):
 
 import os
 
-@login_required
+@staff_member_required
 def deletearchives(request):
     directory = 'static'  # Chemin vers le dossier 'static'
     for filename in os.listdir(directory):
@@ -124,3 +124,22 @@ def deletearchives(request):
             file_path = os.path.join(directory, filename)
             os.remove(file_path)
     return render(request,'home.html')
+
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login
+
+def register(request):
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            # Automatically log in the user after successful registration
+            login(request, user)
+            return redirect('/')  # Replace 'home' with the name of your home page URL pattern
+    else:
+        form = CustomUserCreationForm()
+
+    return render(request, 'register.html', {'form': form})
+
+def doc(request):
+    return render(request,'doc.html')

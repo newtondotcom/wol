@@ -2,6 +2,8 @@
 {% block content %}
     <h1>Create an addon</h1>
 
+    <p>Check out <a id="doc" href="/doc/">here</a> to discover how to add an addon to WOL </p>
+
     <form method="post" action="/createproduct/">
         {% csrf_token %}
         {{ form.as_p }}

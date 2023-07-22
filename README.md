@@ -1,6 +1,6 @@
 # WorldOfLeaks
 
-WorldOfLeaks is a multipurpose website, originally designed for leaks and hacks. The website is fully responsive and can be used on any device. The website is fully customizable and can be used for any purpose.
+WorldOfLeaks is a multipurpose website, originally designed for leaks. The website is fully responsive and can be used on any device. The website is fully customizable and can be used for any purpose.
 
 ## Architecture
 
@@ -13,6 +13,10 @@ There are 4 main components of the database :
 When you add a **product**, you can choose the **game** and the **category**. The **product** will be linked to the **game** and the **category** and the **category** automatically added in the **CatAndGames** table if the **category** is not already linked to the **game**.
 
 Each **category** can have 2 links displayed per product and each **product** can have as well 2 links even the category is 1-link one. The links are displayed in the product page.
+
+# Content is community driven
+
+Once you have created an account and login, one can posts a **product**.
 
 # Responsive and customizable
 
@@ -43,6 +47,8 @@ The application is ready to use with **Docker**. The image can be built using Do
 To be deployed, the image can be uploaded to a Docker registry and then pulled and run on the server using the following command :
 
 `sh docker-build.sh`
+
+Github Actions automatically build and push the image to the Docker registry, thus making it accessible [here](https://hub.docker.com/repository/docker/newtondotcom/wol/general)
 
 # Languages used
 

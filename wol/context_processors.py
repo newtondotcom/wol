@@ -12,6 +12,7 @@ def common_context(request):
         tab.append(temp)
     common_data = {
         'catandgames': tab
-    }
+    }    
+    common_data['user'] = request.user
     return common_data
 
