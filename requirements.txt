@@ -4,3 +4,4 @@ gunicorn
 uwsgi
 requests
 bs4
+python-dotenv

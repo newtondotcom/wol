@@ -2,12 +2,35 @@ from django import forms
 from datas.models import *
 import random
 import base64
+import urllib.parse
+import requests
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
 def linkvertise(link):
     userid = 536896
     base_url = f"https://link-to.net/{userid}/{random.random() * 1000}/dynamic"
     href = f"{base_url}?r={base64.b64encode(link.encode('utf-8')).decode('utf-8')}"
     return href
+
+def clictune(link):
+    base_url = "https://www.clictune.com/Links_api/create_link?user_id=131475&api_key="+ os.getenv("CLICTUNEAPI_KEY") +"&url="
+    full_url = base_url + urllib.parse.quote(link)
+    r = requests.get(full_url)
+    return r.json()['shortenedUrl']
+
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+
+class CustomUserCreationForm(UserCreationForm):
+    email = forms.EmailField(required=True)
+    discord = forms.CharField(max_length=50, required=True,label="Discord ID")
+
+    class Meta:
+        model = CustomUser
+        fields = ('username', 'email', 'discord', 'password1', 'password2')
+
 
 class ProductForm(forms.ModelForm):
     class Meta:
@@ -24,23 +47,8 @@ class ProductForm(forms.ModelForm):
         modified_download = linkvertise(download)
         cleaned_data['download'] = modified_download
         return cleaned_data
-    
-    
-
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
-
-class CustomUserCreationForm(UserCreationForm):
-    email = forms.EmailField(required=True)
-    discord = forms.CharField(max_length=50, required=True,label="Discord ID")
-
-    class Meta:
-        model = CustomUser
-        fields = ('username', 'email', 'discord', 'password1', 'password2')
 
 class CategoryForm(forms.Form):
     category_choices = [(category.id, category.name) for category in Category.objects.all()]
     category = forms.ChoiceField(choices=category_choices)
-
-
 

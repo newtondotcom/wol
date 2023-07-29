@@ -1,11 +1,13 @@
 ###CUSTOM SETTINGS
 NB_ITEMS_PER_PAGE=20
 
-
 ###DJANGO RELATED
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -13,16 +15,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-zb0(#=*sf3wt*x781ww!^vtvr2lb=iia2&^2#5@%__+0k5m#6o'
+SECRET_KEY = os.getenv("SECRET_KEY")
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL =  "/"
-
-
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -43,8 +43,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 ROOT_URLCONF = 'wol.urls'
 
@@ -70,11 +68,21 @@ AUTH_USER_MODEL = 'datas.CustomUser'
 WSGI_APPLICATION = 'wol.wsgi.application'
 
 DATABASES = {
+#    'default': {
+#       'ENGINE': 'django.db.backends.sqlite3',
+#      'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#    }
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+         'ENGINE': 'django.db.backends.mysql',
+          'NAME': os.getenv("DB_NAME"),
+          'USER': os.getenv("DB_USER"),
+         'PASSWORD': os.getenv("DB_PASSWORD"),
+          'HOST': os.getenv("DB_HOST"),
+         'PORT': os.getenv("DB_PORT"),
+     }
 }
+
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
