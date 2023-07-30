@@ -7,4 +7,4 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'wol.settings')
 if settings.DEBUG:
     application = StaticFilesHandler(get_wsgi_application())
 else:
-    application = get_wsgi_application()
+    application = StaticFilesHandler(get_wsgi_application())

@@ -5,3 +5,4 @@ uwsgi
 requests
 bs4
 python-dotenv
+mysqlclient

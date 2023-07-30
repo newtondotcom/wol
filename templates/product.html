@@ -16,7 +16,10 @@
 {%else%}
 {%if tab.hostdownload2 == None %}
 <div id="download1">{{game.link1name |safe}}</div>
-<div id="text"><a id="link" href="{{tab.download | safe}}">Part 1 </a><a id="link" href="{{tab.download | safe}}"> Part 2</a></div>
+<div id="text">
+<a id="link" href="{{tab.download | safe}}"> Part 1 </a>
+<a id="link" href="{{tab.download | safe}}"> Part 2</a>
+</div>
 {%else%}
 <div id="download1">{{game.link1name |safe}}</div>
 <div id="text"><a id="link" href="{{tab.download | safe}}">{{tab.hostdownload | safe}}</a></div>

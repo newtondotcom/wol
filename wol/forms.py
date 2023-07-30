@@ -42,13 +42,20 @@ class ProductForm(forms.ModelForm):
         download = cleaned_data.get('download')
         download2 = cleaned_data.get('download2')
         if download2:
-            modified_download2 = linkvertise(download2)
+            modified_download2 = clictune(download2)
             cleaned_data['download2'] = modified_download2
-        modified_download = linkvertise(download)
+        modified_download = clictune(download)
         cleaned_data['download'] = modified_download
         return cleaned_data
 
+
+from django.utils.functional import lazy
+
+def get_category_choices():
+    return [(category.id, category.name) for category in Category.objects.all()]
+
+lazy_category_choices = lazy(get_category_choices, list)
+
 class CategoryForm(forms.Form):
-    category_choices = [(category.id, category.name) for category in Category.objects.all()]
-    category = forms.ChoiceField(choices=category_choices)
+    category = forms.ChoiceField(choices=lazy_category_choices)
 
